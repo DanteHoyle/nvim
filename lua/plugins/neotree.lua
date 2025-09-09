@@ -36,10 +36,5 @@ return {
       '<cmd>Neotree toggle document_symbols right<CR>',
       desc = 'Toggle document symbols pane',
     },
-    {
-      '<leader>b',
-      '<cmd>Neotree toggle buffers left<CR>',
-      desc = 'Toggle buffers pane',
-    }
   },
 }
