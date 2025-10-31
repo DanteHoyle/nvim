@@ -7,12 +7,10 @@ return {
       completions = { lsp = { enabled = true } },
       pipe_table = {
         padding = 0,
-        cell = 'trimmed', -- alternative: minimal spacing while keeping alignment
-        style = 'normal', -- optional: fewer horizontal separators (less vertical bulk)
-        border_enabled = false, -- optional: hide borders entirely
       },
     },
   },
+
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -22,5 +20,28 @@ return {
     end,
     ft = { "markdown" },
   },
-  { 'dhruvasagar/vim-table-mode' }
+
+  { 'dhruvasagar/vim-table-mode' },
+
+  {
+    "3rd/image.nvim",
+    build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+    opts = {
+      backend = "kitty",
+      processor = "magick_cli",
+      integrations = {
+        markdown = {
+          only_render_image_at_cursor = true,
+        }
+      }
+    }
+  },
+
+  {
+    "jpalardy/vim-slime",
+    init = function()
+      vim.g.slime_target = 'kitty';
+    end
+  }
+
 }

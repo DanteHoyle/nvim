@@ -1,8 +1,11 @@
 return {
   settings = {
     python = {
+      pythonPath = vim.fn.exepath('python3'),
       analysis = {
-        typeCheckingMode = 'off'
+        typeCheckingMode = 'basic',
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true
       }
     }
   }

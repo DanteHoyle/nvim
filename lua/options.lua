@@ -41,7 +41,7 @@ o.hidden = true
 o.number = true
 o.cursorline = true
 -- Always show sign column to prevent horizontal shifting
-o.signcolumn = 'no'
+o.signcolumn = 'yes'
 -- Window splitting behavior
 o.splitright = true
 o.splitbelow = true
