@@ -25,6 +25,8 @@ nmap('<C-u>', '<C-u>zz')
 -- Open current file externally
 nmap('<leader>O', util.open_current_file, 'Open the current file externaly')
 
+nmap('<leader>pi', util.paste_image_from_clipboard, 'Paste currently copied image')
+
 -- Delete words in insert mode with Alt + Backspace
 imap('<BS>', '<C-W>', 'Delete words with alt + backspace')
 

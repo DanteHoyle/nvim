@@ -37,11 +37,3 @@ autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
--- disable italic comments
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.api.nvim_set_hl(0, 'Comment', { italic = false, fg="darkcyan" })
-  end,
-})
