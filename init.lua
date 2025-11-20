@@ -6,6 +6,8 @@
 require 'config.autocmd'
 require 'options'
 require 'keymaps'
+pcall(require, 'local')
+
 require 'config.lazy'
 
 vim.api.nvim_create_autocmd('User', {
