@@ -48,6 +48,12 @@ function M.paste_image_from_clipboard(output_dir)
   end
 end
 
+function M.insert_date()
+  local date = os.date('## %Y %m-%d %a')
+  assert(type(date) == 'string')
+  vim.api.nvim_put({date}, 'c', true, true)
+end
 
+vim.api.nvim_create_user_command('NoteInsertDate', M.insert_date, {})
 
 return M

@@ -33,3 +33,5 @@ imap('<BS>', '<C-W>', 'Delete words with alt + backspace')
 -- Add floating popup to diagnostic jumps
 nmap(']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, 'Next diagnostic')
 nmap('[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, 'Prev diagnostic')
+
+nmap('<leader>id', '<cmd>NoteInsertDate<cr>', 'Insert Date for Notes Heading')
