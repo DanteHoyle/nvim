@@ -54,6 +54,20 @@ function M.insert_date()
   vim.api.nvim_put({date}, 'c', true, true)
 end
 
+-- normal mode keymap
+function M.nmap(keys, func, desc)
+  desc = desc or ''
+  vim.keymap.set('n', keys, func, { desc = desc })
+end
+
+-- insert mode keymap
+function M.imap(keys, func, desc)
+  desc = desc or ''
+  vim.keymap.set('i', keys, func, { desc = desc })
+end
+
 vim.api.nvim_create_user_command('NoteInsertDate', M.insert_date, {})
+vim.api.nvim_create_user_command('NoteInsertCopiedImage', M.paste_image_from_clipboard, {})
+vim.api.nvim_create_user_command('OpenCurrentFile', M.open_current_file, {})
 
 return M
