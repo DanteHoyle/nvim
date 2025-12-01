@@ -1,8 +1,8 @@
 return {
-  'kepano/flexoki-neovim',
+  'EdenEast/nightfox.nvim',
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd [[colorscheme flexoki]]
+    vim.cmd [[colorscheme carbonfox]]
   end,
 }
