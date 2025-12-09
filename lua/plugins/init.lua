@@ -6,4 +6,7 @@ return {
     event = "InsertEnter",
     config = true
   },
+  {
+    'nathangrigg/vim-beancount'
+  }
 }
