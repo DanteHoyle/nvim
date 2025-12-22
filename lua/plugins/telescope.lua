@@ -31,12 +31,62 @@ return {
   end,
 
   keys = {
-    { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find Files' },
-    { 'grr', '<cmd>Telescope lsp_references<cr>', desc = 'Find LSP References' },
-    { '<leader>fg', '<cmd>Telescope live_grep<cr>', desc = 'Search files with grep' },
-    { '<leader><leader>', '<cmd>Telescope builtin<cr>', desc = 'Telescope Builtin' },
-    { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Search Vim Help' },
-    { '<leader>b', '<cmd>Telescope buffers<cr>', desc = 'Search buffers' },
-    { 'gD', '<cmd>Telescope lsp_definitions<cr>', desc = 'Search buffers' },
+    {
+      '<leader>ff',
+      '<cmd>Telescope find_files<cr>',
+      desc = 'Find Files'
+    },
+    {
+      '<leader>fN',
+      function()
+        require('telescope.builtin').find_files({
+          prompt_title = 'Markdown Notes',
+          find_command = {'rg', '--files', '--type', 'md'},
+          previewer = true,
+        })
+      end,
+      desc = 'Find Markdown Files by Name'
+    },
+    {
+      '<leader>fn',
+      function()
+        require('telescope.builtin').live_grep({
+          prompt_title = 'Markdown Notes',
+          glob_pattern = '*.md',
+          previewer = true,
+        })
+      end,
+      desc = 'Find Markdown Files by Content'
+    },
+    {
+      'grr',
+      '<cmd>Telescope lsp_references<cr>',
+      desc = 'Find LSP References'
+    },
+    {
+      '<leader>fg',
+      '<cmd>Telescope live_grep<cr>',
+      desc = 'Search files with grep'
+    },
+    {
+      '<leader><leader>',
+      '<cmd>Telescope builtin<cr>',
+      desc = 'Telescope Builtin'
+    },
+    {
+      '<leader>fh',
+      '<cmd>Telescope help_tags<cr>',
+      desc = 'Search Vim Help'
+    },
+    {
+      '<leader>b',
+      '<cmd>Telescope buffers<cr>',
+      desc = 'Search buffers'
+    },
+    {
+      'gD',
+      '<cmd>Telescope lsp_definitions<cr>',
+      desc = 'Search buffers'
+    },
   }
 }

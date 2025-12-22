@@ -1,3 +1,5 @@
+local utility = require 'config.utility'
+
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
@@ -37,3 +39,8 @@ autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_user_command('NoteInsertDate', utility.insert_date, {})
+vim.api.nvim_create_user_command('NoteInsertCopiedImage', utility.paste_image_from_clipboard, {})
+vim.api.nvim_create_user_command('OpenCurrentFile', utility.open_current_file, {})
+vim.api.nvim_create_user_command('RemoveBlankLines', ':g/^\\s*$/d', {})
