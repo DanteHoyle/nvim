@@ -8,11 +8,6 @@ return {
     event = 'InsertEnter',
     config = true
   },
-<<<<<<< HEAD
-  {
-    'nathangrigg/vim-beancount'
-  }
-=======
 
   {
     'christoomey/vim-tmux-navigator',
@@ -45,5 +40,4 @@ return {
   {
     'dhruvasagar/vim-table-mode'
   },
->>>>>>> 6b47f33 (dump of recent config changes)
 }
