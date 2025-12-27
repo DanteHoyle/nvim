@@ -10,6 +10,12 @@ return {
   },
 
   {
+    'windwp/nvim-ts-autotag',
+    event = 'InsertEnter',
+    config = true,
+  },
+
+  {
     'christoomey/vim-tmux-navigator',
     lazy = false,
     cmd = {
