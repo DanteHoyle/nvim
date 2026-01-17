@@ -3,17 +3,18 @@
 -- |  \| |/ _ \/ _ \ \ / / | '_ ` _ \
 -- | |\  |  __/ (_) \ V /| | | | | | |
 -- |_| \_|\___|\___/ \_/ |_|_| |_| |_|
-require 'config.autocmd'
-require 'options'
-require 'keymaps'
+require('config.autocmd')
+require('options')
+require('commands')
+require('keymaps')
 pcall(require, 'local')
 
-require 'config.lazy'
+require('config.lazy')
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'VeryLazy',
   callback = function()
-    require 'config.capabilities'
-    require 'config.diagnostics'
+    require('config.capabilities')
+    require('config.diagnostics')
   end
 })

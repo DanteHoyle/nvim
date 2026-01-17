@@ -4,54 +4,37 @@ local M = {}
 ---------------------
 -- open the current file externally 
 function M.open_current_file()
-  local path = vim.fn.expand("%")
+  local path = vim.fn.expand('%')
   vim.ui.open(path)
-end
-
-function M.paste_image_from_clipboard(output_dir)
-  -- use default output_dir if none provided
-  local home = os.getenv('HOME')
-  if not home then
-    vim.notify('failed to get HOME from ENV')
-    return
-  end
-  if not output_dir then
-    output_dir = home .. '/Pictures/nvim_pastes'
-  end
-
-  vim.fn.mkdir(output_dir, 'p')
-
-  -- detect available clipboard tools
-  local clipboard_tool
-  if os.getenv('WAYLAND_DISPLAY') then
-    clipboard_tool = 'wl-paste'
-  else
-    vim.notify("Couldn't detect clipboard tool")
-    return
-  end
-
-  -- create file from image clipboard data
-  local timestamp = os.date("%Y%m%d_%H%M%S")
-  local filename = 'image_' .. timestamp .. '.png'
-  local filepath = output_dir .. '/' .. filename
-  local cmd = clipboard_tool .. ' > ' .. vim.fn.shellescape(filepath)
-  vim.fn.system(cmd)
-
-  local file_was_created_successfully = vim.fn.getfsize(filepath) > 0
-
-  if file_was_created_successfully then
-    local markdown_link = string.format('![%s](%s)', filename, filepath)
-    vim.api.nvim_put({ markdown_link }, 'c', true, true)
-    vim.notify('Copied clipboard contents to ' .. filepath)
-  else
-    vim.notify('Failed to create file from clipboard contents')
-  end
 end
 
 function M.insert_date()
   local date = os.date('## %Y %m-%d %a')
   assert(type(date) == 'string')
   vim.api.nvim_put({date}, 'c', true, true)
+end
+
+function M.is_dark_mode()
+  -- returns true if the system is currently running dark mode
+  local os = vim.uv.os_uname().sysname
+  local is_dark = nil
+
+  if os == 'Linux' then
+    local system_style = vim.fn.system('gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null')
+    is_dark = system_style:match('dark') ~= nil
+  elseif os == 'Darwin' then
+    local system_style = vim.fn.system('defaults read -g AppleInterfaceStyle 2>/dev/null')
+    is_dark = system_style:match('dark') ~= nil
+  elseif os == 'Windows' then
+    -- todo detect windows colorscheme
+    is_dark = true
+  else
+    -- default case if OS can't be detected
+    vim.print('OS could not be detected')
+    is_dark = true
+  end
+
+  return is_dark
 end
 
 return M
