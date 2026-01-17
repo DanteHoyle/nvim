@@ -24,28 +24,20 @@ return {
       },
       automatic_installation = true,
     },
+  },
+  {
+    'benomahony/uv.nvim',
+    ft = { 'python' },
+    dependencies = {
+      'nvim-telescope/telescope.nvim'
+    },
+    opts = {
+      picker_integration = true,
+    },
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
   }
-
-  -- {
-  --   'mfussenegger/nvim-dap',
-  --   -- event = 'User Basefile',
-  --   config = function(_, opts)
-  --     local dap = require 'dap'
-  --        -- Python
-  --     dap.adapters.python = {
-  --         type = 'executable',
-  --         command = vim.fn.stdpath('data')..'/mason/packages/debugpy/venv/bin/python',
-  --         args = { '-m', 'debugpy.adapter' },
-  --     }
-  --     dap.configurations.python = {
-  --       {
-  --         type = "python",
-  --         request = "launch",
-  --         name = "Launch file",
-  --         program = "${file}", -- This configuration will launch the current file if used.
-  --       },
-  --     }
-  --
-  --   end
-  -- },
 }

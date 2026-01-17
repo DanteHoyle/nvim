@@ -80,7 +80,9 @@ return {
     },
     {
       '<leader>b',
-      '<cmd>Telescope buffers<cr>',
+      function()
+        require('telescope.builtin').buffers({ initial_mode = "normal", })
+      end,
       desc = 'Search buffers'
     },
     {

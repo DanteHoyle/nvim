@@ -27,3 +27,6 @@ map('n', '<leader>id', '<cmd>NoteInsertDate<cr>', { desc = 'Insert Date for Note
 -- Open current file externally
 map('n', '<leader>O', '<cmd>OpenCurrentFile<cr>', { desc = 'Open the current file externally' })
 map('n', '<leader>pi', '<cmd>NoteInsertCopiedImage<cr>', { desc = 'Paste currently copied image' })
+
+map('v', 'J', ":move '>+1<CR>gv-gv")
+map('v', 'K', ":move '<-2<CR>gv-gv")
