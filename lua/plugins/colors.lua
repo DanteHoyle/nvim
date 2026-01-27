@@ -5,7 +5,7 @@ return {
   priority = 1000,
   config = function()
     if util.is_dark_mode() then
-      vim.cmd[[ colorscheme github_dark_default ]]
+      vim.cmd[[ colorscheme github_dark ]]
     else
       vim.cmd[[ colorscheme github_light ]]
     end

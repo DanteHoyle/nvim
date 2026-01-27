@@ -38,12 +38,4 @@ return {
     end
   },
 
-  {
-    'OXY2DEV/markview.nvim',
-    lazy = false,
-  },
-
-  {
-    'dhruvasagar/vim-table-mode'
-  },
 }
