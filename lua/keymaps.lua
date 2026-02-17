@@ -30,3 +30,5 @@ map('n', '<leader>pi', '<cmd>NoteInsertCopiedImage<cr>', { desc = 'Paste current
 
 map('v', 'J', ":move '>+1<CR>gv-gv")
 map('v', 'K', ":move '<-2<CR>gv-gv")
+
+map('n', 'gd', vim.lsp.buf.definition, { desc = "Open LSP Definition" })

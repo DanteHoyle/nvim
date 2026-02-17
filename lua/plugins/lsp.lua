@@ -2,42 +2,44 @@ return {
   {
     'mason-org/mason.nvim',
     build = ':MasonUpdate',
-    cmd = {
-      'Mason',
-      'MasonInstall',
-      'MasonUninstall',
-      'MasonUninstallAll',
-      'MasonLog',
-    },
-    opts = {}
+    lazy = false,
+    opts = {},
   },
   {
     'mason-org/mason-lspconfig.nvim',
-    dependencies = {
-      'mason-org/mason.nvim',
-      'neovim/nvim-lspconfig',
-    },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       ensure_installed = {
-        -- 'pyright',
         'lua_ls',
+        'vtsls',
       },
-      automatic_installation = true,
     },
+  },
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        typescript = { 'prettier' },
+        python = { 'ruff' }
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+    }
   },
   {
     'benomahony/uv.nvim',
     ft = { 'python' },
-    dependencies = {
-      'nvim-telescope/telescope.nvim'
-    },
-    opts = {
-      picker_integration = true,
-    },
+    opts = {},
   },
   {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   }
 }
