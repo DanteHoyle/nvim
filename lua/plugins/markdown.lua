@@ -1,12 +1,12 @@
 return {
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },
-    opts = {},
-    ft = "markdown",
-    config = function()
-      require('render-markdown').disable()
-    end
+    -- 'MeanderingProgrammer/render-markdown.nvim',
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },
+    -- opts = {},
+    -- ft = "markdown",
+    -- config = function()
+    --   require('render-markdown').disable()
+    -- end
   },
   {
     'dhruvasagar/vim-table-mode',

@@ -4,7 +4,7 @@ vim.lsp.config("*", {
   capabilities = capabilities,
 })
 
-vim.lsp.enable({ 'lua_ls', 'vtsls' })
+vim.lsp.enable({ 'lua_ls', 'vtsls', 'pyright' })
 
 vim.diagnostic.config {
   underline = true,

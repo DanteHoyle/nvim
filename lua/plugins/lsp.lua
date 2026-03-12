@@ -11,23 +11,24 @@ return {
     opts = {
       ensure_installed = {
         'lua_ls',
+        'pyright',
         'vtsls',
       },
     },
   },
-  {
-    'stevearc/conform.nvim',
-    opts = {
-      formatters_by_ft = {
-        typescript = { 'prettier' },
-        python = { 'ruff' }
-      },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
-    }
-  },
+  -- {
+  --   'stevearc/conform.nvim',
+  --   opts = {
+  --     formatters_by_ft = {
+  --       typescript = { 'prettier' },
+  --       python = { 'ruff' }
+  --     },
+  --     format_on_save = {
+  --       timeout_ms = 500,
+  --       lsp_fallback = true,
+  --     },
+  --   }
+  -- },
   {
     'benomahony/uv.nvim',
     ft = { 'python' },

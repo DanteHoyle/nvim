@@ -11,8 +11,20 @@ g.maplocalleader = ';'
 -- SYSTEM INTEGRATION
 -- Enable mouse support in all modes
 o.mouse = 'a'
--- Use system clipboard (scheduled to prevent startup lag)
-vim.schedule(function() opt.clipboard:append "unnamedplus" end)
+
+o.clipboard = "unnamedplus"
+
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
 -- Respect .editorconfig files for consistent formatting across projects
 g.editorconfig = true
 
@@ -35,7 +47,7 @@ o.signcolumn = 'no'
 o.splitright = true
 o.splitbelow = true
 -- Rounded window borders
--- o.winborder = "rounded"
+o.winborder = "rounded"
 
 -- CODE FOLDING
 -- Use Treesitter for intelligent folding
