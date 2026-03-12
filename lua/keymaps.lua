@@ -11,11 +11,8 @@ map('n', '<C-d>', '<C-d>zz')
 map('n', '<C-u>', '<C-u>zz')
 
 -- Delete words in insert mode with Alt + Backspace
-map('i', '<BS>', '<C-W>', { desc = 'Delete words with alt + backspace' })
+map('i', '<A-BS>', '<C-W>', { desc = 'Delete word with alt+backspace' })
 
--- Add floating popup to diagnostic jumps
-map('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Next diagnostic' })
-map('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Prev diagnostic' })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
@@ -31,4 +28,3 @@ map('n', '<leader>pi', '<cmd>NoteInsertCopiedImage<cr>', { desc = 'Paste current
 map('v', 'J', ":move '>+1<CR>gv-gv")
 map('v', 'K', ":move '<-2<CR>gv-gv")
 
-map('n', 'gd', vim.lsp.buf.definition, { desc = "Open LSP Definition" })

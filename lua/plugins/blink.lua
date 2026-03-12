@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = {},
   version = '1.*',
   opts = {
     keymap = {
@@ -19,7 +19,7 @@ return {
       }
     },
 
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = "lua" }
   },
   opts_extend = { "sources.default" }
 }

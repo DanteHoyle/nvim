@@ -2,12 +2,6 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
--- LEADER KEYS
--- Primary leader for most mappings
-g.mapleader = ' '
--- Local leader for buffer/filetype specific mappings
-g.maplocalleader = ';'
-
 -- SYSTEM INTEGRATION
 -- Enable mouse support in all modes
 o.mouse = 'a'
@@ -41,13 +35,13 @@ o.hidden = true
 -- Line numbers and cursor
 o.number = true
 o.cursorline = true
--- Always show sign column to prevent horizontal shifting
+-- Disable sign column
 o.signcolumn = 'no'
 -- Window splitting behavior
 o.splitright = true
 o.splitbelow = true
 -- Rounded window borders
-o.winborder = "rounded"
+o.winborder = "shadow"
 
 -- CODE FOLDING
 -- Use Treesitter for intelligent folding
@@ -60,14 +54,13 @@ o.foldtext = ""
 
 -- INDENTATION AND FORMATTING
 -- Tab settings (2 spaces, expand to spaces)
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+o.tabstop = 2
+o.softtabstop = 2
+o.shiftwidth = 2
+o.expandtab = true
 -- Automatic indentation
-vim.opt.autoindent = true
-vim.opt.smartindent = true
 o.autoindent = true
+o.smartindent = true
 
 -- WHITESPACE VISUALIZATION
 -- Show invisible characters

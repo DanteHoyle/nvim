@@ -20,7 +20,7 @@ autocmd({ "InsertEnter", "WinLeave", "TabLeave" }, {
 -- Set folding method to LSP if supported
 autocmd('LspAttach', {
   callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local client = vim.lsp.get_clients({ id = args.data.client_id })[1]
     if client and client:supports_method('textDocument/foldingRange') then
       local win = vim.api.nvim_get_current_win()
       vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
@@ -43,6 +43,5 @@ autocmd('FileType', {
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
-    vim.opt_local.signcolumn = 'yes'
   end
 })
